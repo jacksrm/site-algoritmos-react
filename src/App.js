@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import Somador from './components/Somador';
+import Home from './components/Home';
+
+
+import './global.css';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('');
+
+  function getPage(pageName) {
+    setCurrentPage(pageName);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar currentPage={currentPage} />
+          <Switch>
+            <Route exact path="/" render={ props => <Home {...props} getPage={getPage} />} />
+            <Route path="/somador" render={ props => <Somador {...props} getPage={getPage} />} />
+          </Switch>
+      </BrowserRouter>
+    </>
   );
 }
 
