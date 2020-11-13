@@ -7,7 +7,7 @@ export default function Ordenar({ getPage }) {
 
   return (
     <div className="container">
-      
+      <h1>Ordenar com Quick Sort</h1>
     </div>
   );
 }
