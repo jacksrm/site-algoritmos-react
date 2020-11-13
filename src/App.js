@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom';
 
 import Navbar from './components/Navbar';
-import Somador from './components/Somador';
-import Home from './components/Home';
+import Routes from './Routes';
 
 
 import './global.css';
@@ -18,10 +17,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar currentPage={currentPage} />
-          <Switch>
-            <Route exact path="/" render={ props => <Home {...props} getPage={getPage} />} />
-            <Route path="/somador" render={ props => <Somador {...props} getPage={getPage} />} />
-          </Switch>
+        <Routes getPage={getPage} />
       </BrowserRouter>
     </>
   );

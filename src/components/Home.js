@@ -1,5 +1,5 @@
+
 import { useEffect } from 'react';
-import './styles.css';
 
 function Home({ getPage }) {
 
